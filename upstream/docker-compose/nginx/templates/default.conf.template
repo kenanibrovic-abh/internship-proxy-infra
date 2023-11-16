@@ -2,7 +2,7 @@
 server {
     listen 80;
     listen 443;
-    server_name app1.<DOMAIN>;
+    server_name app1.${DOMAIN};
 
     location / {
       proxy_pass http://app1-web-1;
@@ -12,7 +12,7 @@ server {
 server {
     listen 80;
     listen 443;
-    server_name app2.<DOMAIN>;
+    server_name app2.${DOMAIN};
 
     location / {
       proxy_pass http://app2-web-1;
