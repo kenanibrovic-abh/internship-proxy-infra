@@ -10,6 +10,12 @@ variable "availability_zone_suffix" {
   default = "a"
 }
 
+variable "instance_type" {
+  type = string
+  description = "EC2 instance type"
+  default = "t3.micro"
+}
+
 variable "vpc_cidr" {
   type        = string
   description = "VPC CIDR Block"

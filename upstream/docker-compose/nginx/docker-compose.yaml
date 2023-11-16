@@ -2,6 +2,8 @@ version: "3"
 services:
   proxy:
     image: nginx:stable-bullseye
+    environments:
+    - DOMAIN=<DOMAIN>
     volumes:
     - ./templates:/etc/nginx/templates
     ports:
