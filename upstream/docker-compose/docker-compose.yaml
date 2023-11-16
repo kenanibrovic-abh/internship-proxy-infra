@@ -1,0 +1,20 @@
+version: "3"
+services:
+  proxy:
+    image: nginx:stable-bullseye
+    volumes:
+    - ./templates:/etc/nginx/templates
+    ports:
+    - "80:80"
+    - "443:443"
+    networks:
+    - app1
+    - app2
+
+networks:
+  app1:
+    name: app1_default
+    external: true
+  app2:
+    name: app2_default
+    external: true
