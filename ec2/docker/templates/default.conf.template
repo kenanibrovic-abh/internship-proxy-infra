@@ -1,0 +1,16 @@
+upstream backend_http {
+  server ${TARGET_SERVER}:80;
+}
+upstream backend_https {
+  server ${TARGET_SERVER}:443;
+}
+
+server {
+    listen 80;
+    proxy_pass backend_http;
+}
+server {
+    listen 443;
+    proxy_pass backend_https;
+}
+
