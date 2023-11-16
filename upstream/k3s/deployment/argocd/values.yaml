@@ -1,0 +1,31 @@
+configs:
+  params:
+    server.insecure: true
+
+server:
+  service:
+    type: ClusterIP
+  ingress:
+    enabled: true
+    ingressClassName: "nginx"
+    annotations: {}
+    #   cert-manager.io/cluster-issuer: letsencrypt
+    hosts:
+      - argocd.localhost
+    tls: []
+    #   - secretName: argo-server-tls
+    #     hosts:
+    #       - argocd.localhost
+
+repositories:
+  k3s:
+    url: https://github.com/kenanibrovic-abh/internship-proxy-infra.git
+    name: argocd
+    type: helm
+
+dex:
+  enabled: false
+applicationSet:
+  enabled: false
+notifications:
+  enabled: false
