@@ -5,6 +5,11 @@ terraform {
       version = "~> 5.0"
     }
   }
+  backend "s3" {
+    bucket = "tfstate-nginx-reverse-proxy"
+    key = "terraform.tfstate"
+    region = "eu-central-1"
+  }
 }
 
 # Configure the AWS Provider
@@ -12,7 +17,3 @@ provider "aws" {
   region = var.aws_region
 }
 
-# # Create a VPC
-# resource "aws_vpc" "example" {
-#   cidr_block = "10.0.0.0/16"
-# }
